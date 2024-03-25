@@ -1,0 +1,90 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2706
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10720\viewh18400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs84 \cf0 text mining notes\
+\
+Linguistics:\
+	- hyponym: object-classification relation\
+		EX: \'91blue\'92 is a hyponym of \'91color\'92\
+	- homophone: words with different meaning and spelling but sound the same\
+	- homonym: words with different meaning but written the same\
+	- metonomy: words which are used to refer to other things.\
+		EX: The \'91crown\'92 said that all british people must die.\
+	- meronomy & holonomy: part-whole relationship between two words\
+		EX: finger & hand -> finger is a meronym of hand, and hand is a holonym of finger\
+\
+Introduction to text mining:\
+	- In early NLP tools, the most used approach was rule-based\
+	- The most complex NLP task is event extraction\
+\
+Natural Language Processing:\
+	- What is the difference between dependency parsing and constituent parsing? \
+		R: A dependency parser detects flat relations between adjectives, nouns and verbs, a constituency parser detects hierarchical relations such as noun phrases and verb phrases.\
+	- Dependency focus on the relationship between POS, whereas Constituency focus on the hierarchical relation between phrases.\
+	- What are chunkers?\
+		R: Chunkers provide constituents robust and efficiently, but no full sentence structure\
+	- Chunking vs Constituency Parsing:\
+		R: Both break down the sentence in small parts to identify the types of the phrases which make a sentence, but whereas chunking classifies each phrase based on patterns of POS tags (lower-level, less robust), constituency parsing focus also on the hierarchical structure of a sentence, that is, the relationship between phrases and words, and give the full sentence structure.\
+\
+Sentiment:\
+	-	Precision: Correct guesses over number of guesses of a class\
+	- Recall: Correct guesses over total number of samples of a class\
+	- F1 : 2*(Precision*Recall/Precision+Recall)\
+\
+Named Entities:\
+	- What is the main reason to express sequential tags using the BIO (or also called IOB) format over only providing the class name?\
+		R: The IOB format can better expresses the boundaries of an entity or chunk\
+	- Metonomy has an impact on NER because the same name is used for different types such as locations, people and governments.\
+	- Why is it important to create balanced evaluation data sets for NLP research? \
+		R: When an evaluation data set does not contain a realistic sample of the linguistic phenomenon, it doesn't allow one to measure a system's performance on that phenonemon adequately.\
+\
+Topic modeling and text categorization:\
+\pard\pardeftab720\partightenfactor0
+\cf0 	- Text classification: broad term to cover any association betweena label and a text (e.g., sentiment, genre, language)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 	- There is no a priori definition of all topics:\
+		\'95 it is subjective, cultural and topics as the world change continuously\
+	- Genres are not topics but conventional styles of communication (e.g. news articles, tweets, reviews\'85)\
+	- Referential implies related to a context, but could be relational to a fictional world\
+\pard\pardeftab720\partightenfactor0
+\cf0 	- Longer texts such as news may contain different topics which creates ambiguity. The shorter, the easier it is to classify a topic\
+	- Supervised topic classification:\
+		- Advantages: control over the topics, high performance\
+		- Disadvantages: no new topics, biased towards distribution of training data, manual effort to maintain the topics and training data\
+ 	- Unsupervised topic modeling: clustering task which groups documents on the basis of their shared word associations\
+		- Assumes that any set of documents can be split into groups or clusters that use similar words\
+		- Cluster labels are extracted by TD*IDF\
+	- Unsupervised topic learning with LDA:\
+		- Document-Word matrix: Get all the documents and word occurences\
+		- Document-Topic matrix: For each document and each topic, get the proportion of the words in the document which are assigned to the topic.\
+		- Topic-Word matrix: For each topic and each word, get the proportion of the amount of times the word was associated to the topic, over the total number of documents which that word occurs\
+		- Limitations\
+			- Fixed topics (run many times to find the optimum number of topics)\
+			- Topics independent from each other, larger texts exhibit mixed topics\
+			- Words are treated as if independent from each other\
+			- To solve this issues: Correlated Topic Modeling (to solve topic independence, words from related topics more probable to co-occur within topics, co-variance matrix) and Hierarchical LDS (to solve final set of topics)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 	- Evaluation (intrisic measurement):\
+		- Topic recall: are all topics in a collection identified to the true degree (ground truth); are all topics in a collection identified?\
+		- Accuracy: proportion of documents correctly labeled for a topic (ground truth)\
+		- Purity: accuracy considering the dominant (highest scoring) topic\
+		- KL-divergence: difference in topic probability distribution model A against model B (B could be ground through or another approach\
+		- Perplexity: how well can a model predict hold-out sample documents given a topic (generative models)\
+	- Evaluation (coherence measurement):\
+		- Precision: proportion of top-scoring words (keywords) from approximated topic in ground-truth topic.\
+		- Pointwise Mutual Information (PMI): measures the frequency of the combination of two words relative to the frequency of the individual words.\
+		- diversity: how many words are unique for a topic and don\'92t occur in other topics\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
